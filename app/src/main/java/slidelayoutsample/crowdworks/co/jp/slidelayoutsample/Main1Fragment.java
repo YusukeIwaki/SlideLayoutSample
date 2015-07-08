@@ -46,7 +46,7 @@ public class Main1Fragment extends Fragment {
             @DebugLog
             @Override
             public void onMove(int dy) {
-                topbar.setTranslationY(-dy);
+                topbar.setY(-dy);
             }
 
             @DebugLog

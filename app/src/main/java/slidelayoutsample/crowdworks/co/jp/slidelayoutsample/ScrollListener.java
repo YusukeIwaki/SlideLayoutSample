@@ -18,8 +18,9 @@ abstract class ScrollListener extends RecyclerView.OnScrollListener {
 
         if(newState == RecyclerView.SCROLL_STATE_IDLE) {
             if (mControlsVisible) {
-                if (mToolbarOffset > mBarHeight*7/8) {
-                    setInvisible();
+                if (mToolbarOffset >= mBarHeight*1/4) {
+                    //setInvisible();
+                    mControlsVisible = false;
                 } else {
                     setVisible();
                 }
@@ -27,7 +28,8 @@ abstract class ScrollListener extends RecyclerView.OnScrollListener {
                 if ((mBarHeight - mToolbarOffset) > mBarHeight*3/4) {
                     setVisible();
                 } else {
-                    setInvisible();
+                    //setInvisible();
+                    mControlsVisible = false;
                 }
             }
         }
@@ -53,10 +55,8 @@ abstract class ScrollListener extends RecyclerView.OnScrollListener {
 
 
     private void setVisible() {
-        if(mToolbarOffset > 0) {
-            onShow();
-            mToolbarOffset = 0;
-        }
+        onShow();
+        mToolbarOffset = 0;
         mControlsVisible = true;
     }
 
