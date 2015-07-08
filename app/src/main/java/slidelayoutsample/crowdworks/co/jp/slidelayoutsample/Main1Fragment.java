@@ -46,20 +46,7 @@ public class Main1Fragment extends Fragment {
             @DebugLog
             @Override
             public void onMove(int dy) {
-                topbar.setTranslationY(-dy);
-            }
-
-            @DebugLog
-            @Override
-            public void onShow(){
-                topbar.animate().translationY(0).start();
-            }
-
-            @DebugLog
-            @Override
-            public void onHide(){
-                final int height = topbar.getHeight();
-                topbar.animate().translationY(-height).start();
+                topbar.setY(-dy);
             }
         };
         recyclerView.addOnScrollListener(l);
