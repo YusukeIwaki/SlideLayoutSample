@@ -30,6 +30,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public void setHeaderSize(int headerSize){
         mHeaderSize = headerSize;
+        notifyItemChanged(getBasicItemCount());
     }
 
     @Override
@@ -64,7 +65,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemViewType(int position) {
-        if (position == mItemList.size()) {
+        if (position == getBasicItemCount()) {
             return TYPE_HEADER;
         }
         return TYPE_ITEM;
